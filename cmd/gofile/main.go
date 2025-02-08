@@ -23,10 +23,12 @@ func generateFileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fileSize := size * 1024 * 1024 // Convert MB to bytes
+
 	w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=%dMB_file.txt", size))
 	w.Header().Set("Content-Type", "application/octet-stream")
+	w.Header().Set("Content-Length", strconv.Itoa(fileSize))
 
-	fileSize := size * 1024 * 1024  // Convert MB to bytes
 	data := make([]byte, 1024*1024) // 1MB buffer
 
 	for written := 0; written < fileSize; written += len(data) {
