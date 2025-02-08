@@ -8,7 +8,15 @@ This is a simple Go application that starts an HTTP server with an endpoint to g
 
 ## Usage
 
-### Running the Server
+### Using Docker
+
+The easiest way to run the server is using Docker:
+
+```sh
+docker run -p 8080:8080 ghcr.io/maveonair/gofile
+```
+
+### Running the server locally
 
 1. Clone the repository:
 
